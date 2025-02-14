@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Anta&family=Bahianita&family=Oswald:wght@200..700&family=Outfit:wght@100..900&display=swap');
+
+
+.header{
+    height:  34vw;
+    width: 74vw;
+    margin: 20px auto;
+    border-radius: 10px;
+    background: url('/header_img.jpg') no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.header-contents{
+    
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1.5vw;
+    max-width: 50%;
+    bottom: 5%;
+    left: 6vw;
+    animation: fadeIn 3s;
+}
+
+.header-contents h2{
+    font-weight: 500;
+    color: rgb(255, 98, 7);
+    font-size: max(4.5vw,22px);
+    font-family: Bahianita;
+}
+
+.header-contents .sfav{
+    font-family: Anta;
+    color: rgb(255, 98, 7);
+}
+
+.header-contents p{
+    font-size: 15px;
+    color: rgb(36, 39, 8);
+}
+
+.header-contents button{
+    border: none;
+    color: #025d6d;
+    font-weight: 500;
+    padding: 1vw 2.3vw;
+    background-color: white;
+    font-size: max(1vw,13px);
+    border-radius: 50px;
+}
+@media (max-width:1050px){
+   
+    .header-contents{
+        max-width: 45%;
+    }
+}
+@media (max-width:750px){
+  
+    .header-contents{
+        max-width: 65%;
+    }
+    .header-contents p{
+        display: none;
+    }
+    .header-contents button{
+        padding: 2vw 4vw;
+    }
+}
