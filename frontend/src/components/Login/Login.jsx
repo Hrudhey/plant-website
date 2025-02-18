@@ -24,13 +24,7 @@ const Login = ({setShowLogin}) => {
 
    const onLogin= async(event)=>{
         event.preventDefault()
-        let newUrl= url;
-        if(currState==='Login'){
-          newUrl += '/api/user/login'
-        }
-        else{
-          newUrl += '/api/user/register'
-        }
+        let newUrl = url + (currState === "Login" ? "/api/user/login" : "/api/user/register");
 
         try {
           const response = await axios.post(newUrl, data);
@@ -45,7 +39,13 @@ const Login = ({setShowLogin}) => {
                   // For login, set token and close popup
                   setToken(response.data.token);
                   localStorage.setItem('token', response.data.token);
-                  setShowLogin(false);
+                  localStorage.setItem('isAdmin', response.data.isAdmin);
+                  
+                  if (response.data.isAdmin) {
+                    window.location.href = "https://plant-website-admin.onrender.com";
+                } else {
+                    setShowLogin(false);
+                }
               }
           } else {
               alert(response.data.message);
